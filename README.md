@@ -34,7 +34,3 @@ Contributions to improve or expand the quiz are welcome! Some ideas:
 - Add more characters from Star Wars or other franchises
 - Improve the answer matching/scoring algorithm (handling ties, etc)
 - Add a user interface
-
-## License
-
-This project is open source and available under the MIT License. Let me know if you would like any changes or have additional sections to add!
