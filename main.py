@@ -1,7 +1,4 @@
-#Simple Personality Quiz by Alaina Jensen
-#This can be adapted for different themes
-
-# Star Wars character template: 
+#Star Wars character template: 
 # [Name, rebellion/empire, human/alien, personality trait, 
 # character flaw, force sensitive y/n]
 
@@ -32,7 +29,7 @@ Options = [
 
 PlayerCharacteristics = []
 
-def ask_question(question, options):
+def AskQuestion(question, options):
   print(question)
   print(options)
   answer = input("Your answer (A, B, etc): ").upper()
@@ -41,23 +38,26 @@ def ask_question(question, options):
     answer = input("Your answer (A, B, etc): ").upper()
   return answer
 
+def FindBestMatch(Personalities, PlayerCharacteristics):
+  BestMatch = []
+  HighestScore = 0
+  for Personality in Personalities:
+    score = 0
+    for i in range(1, len(PlayerCharacteristics)):
+       if Personality[i] == PlayerCharacteristics[i-1]:
+         score += 1
+    if score > HighestScore:
+      HighestScore = score
+      BestMatch = Personality
+  if HighestScore > 0:
+    print("\nCongratulations, you are " + BestMatch[0] + "!")
+  else: 
+    print("Error! You don't match any of the personalities.")
+
 print("Hello there!")
 print("Let's find out which Star Wars character you are!")
 
 for i in range(len(Questions)):
-  PlayerCharacteristics.append(ask_question(Questions[i], Options[i]))
+  PlayerCharacteristics.append(AskQuestion(Questions[i], Options[i]))
 
-best_match = []
-highest_score = 0
-for Personality in Personalities:
-  score = 0
-  for i in range(1, len(PlayerCharacteristics)):
-     if Personality[i] == PlayerCharacteristics[i-1]:
-       score += 1
-  if score > highest_score:
-    highest_score = score
-    best_match = Personality
-if highest_score > 0:
-  print("\nCongratulations, you are " + best_match[0] + "!")
-else: 
-  print("Error! You don't match any of the personalities.")
+FindBestMatch(Personalities, PlayerCharacteristics)
