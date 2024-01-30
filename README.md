@@ -11,17 +11,18 @@ The quiz contains a predefined list of Star Wars characters along with their tra
 - A scoring system calculates which character's traits most closely match the user's answers.
 - The character with the highest score is displayed as the user's match.
 
-## Code Overview
+## Code Explanation
+The main functionality of the program is contained within the `main.py` file. Here's a breakdown of the key components:
 
-### Lists
-- Personalities - A 2D list containing the character name, Rebellion/Empire alignment, human/alien species, main personality trait, main flaw, and force sensitivity of each character
-- Questions - A list of personality quiz questions to ask the user
-- Options - A list of multiple choice answers for each question, with answers corresponding with a different character
-- PlayerCharacteristics - A list to store the players's answers
+### Data Representation
+The Star Wars character traits and options are represented using the following data structures:
+- personalities: A dictionary mapping character names to lists of traits, representing attributes such as allegiance, species, personality trait, character flaw, and Force sensitivity.
+- questions: A list of questions presented to the user during the quiz.
+- options: A list of options corresponding to each question to provide the user with multiple choice answers.
 
 ### Functions
-- AskQuestion() - Function to prompt user with a question and input options
-- FindBestMatch() - Function to score user answers against each character and return best match
+- ask_question(question, option) - This function presents the user with a question and a set of options to choose from. It then validates and returns the user's input.
+- find_best_match(personalities, player_characteristics) - This function matches the user's input with the predefined character traits to determine the best match. The character with the highest matching score is considered the best match.
 
 ## Customising the Quiz
 
